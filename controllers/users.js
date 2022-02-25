@@ -5,6 +5,11 @@ const bcrypt = require('bcrypt')
 const cryptojs = require('crypto-js')
 require('dotenv').config()
 
+
+router.get('/profile', (req, res)=>{
+    res.render('users/profile.ejs')
+})
+
 router.get('/new', (req, res)=>{
     res.render('users/new.ejs')
 })
@@ -34,7 +39,7 @@ router.post('/', async (req, res)=>{
 })
 
 router.get('/login', (req, res)=>{
-    res.render('users/login.ejs')
+    res.render('users/login.ejs', {error: null})
 })
 
 router.post('/login', async (req, res)=>{
